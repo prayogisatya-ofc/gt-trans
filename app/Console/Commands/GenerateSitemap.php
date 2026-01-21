@@ -67,7 +67,7 @@ class GenerateSitemap extends Command
             ->chunk(200, function ($cats) use ($sitemap) {
                 foreach ($cats as $cat) {
                     $sitemap->add(
-                        Url::create(route('routes.index', ['category' => $cat->id]))
+                        Url::create(route('routes.index', ['category' => $cat->slug]))
                             ->setPriority(0.6)
                             ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
                     );
