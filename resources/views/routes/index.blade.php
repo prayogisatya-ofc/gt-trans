@@ -126,7 +126,7 @@
                                     class="w-full px-4 py-3 sm:py-4 pr-10 rounded-2xl border-2 border-zinc-200 bg-zinc-50 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all outline-none text-sm font-bold appearance-none cursor-pointer">
                                     <option value="">Semua Kategori</option>
                                     @foreach($categories as $cat)
-                                        <option value="{{ $cat->id }}" @selected(request('category') == $cat->id)>
+                                        <option value="{{ $cat->slug }}" @selected(request('category') == $cat->slug)>
                                             {{ $cat->name }}
                                         </option>
                                     @endforeach
@@ -173,7 +173,7 @@
                                 @endif
                                 
                                 @if(request('category'))
-                                    @php($activeCat = $categories->firstWhere('id', request('category')))
+                                    @php($activeCat = $categories->firstWhere('slug', request('category')))
                                     <span class="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-secondary-50 text-secondary-800 text-xs font-bold border-2 border-secondary-200 shadow-sm">
                                         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                                             <path fill-rule="evenodd" d="M17.707 9.293a1 1 0 010 1.414l-7 7a1 1 0 01-1.414 0l-7-7A.997.997 0 012 10V5a3 3 0 013-3h5c.256 0 .512.098.707.293l7 7zM5 6a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/>
@@ -252,17 +252,6 @@
                     rute
                 </p>
             </div>
-            
-            {{-- Sort Options (Optional) --}}
-            <div class="flex items-center gap-2">
-                <span class="text-xs font-bold text-zinc-500 uppercase tracking-wider">Urutkan:</span>
-                <select class="px-3 sm:px-4 py-2 rounded-xl border-2 border-zinc-200 bg-white text-xs sm:text-sm font-bold focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all outline-none appearance-none cursor-pointer">
-                    <option>Terpopuler</option>
-                    <option>Harga Terendah</option>
-                    <option>Harga Tertinggi</option>
-                    <option>Nama A-Z</option>
-                </select>
-            </div>
         </div>
 
         {{-- Route Cards Grid --}}
@@ -293,16 +282,11 @@
                         <div class="relative flex-grow space-y-7 sm:space-y-8 mb-6 sm:mb-8">
                             <div class="space-y-2">
                                 <div class="text-xs font-bold text-zinc-400 uppercase tracking-wider flex items-center gap-2">
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
-                                    </svg>
                                     {{ $r->cityA?->name }}
                                 </div>
                                 
                                 <div class="flex items-center gap-3">
-                                    <svg class="w-5 h-5 sm:w-6 sm:h-6 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 sm:w-6 sm:h-6 text-primary-500 icon icon-tabler icons-tabler-outline icon-tabler-arrows-diff"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M11 16h10" /><path d="M11 16l4 4" /><path d="M11 16l4 -4" /><path d="M13 8h-10" /><path d="M13 8l-4 4" /><path d="M13 8l-4 -4" /></svg>
                                     <div class="text-xl sm:text-2xl md:text-3xl font-black text-zinc-900 leading-tight group-hover:text-primary-700 transition-colors">
                                         {{ $r->cityB?->name }}
                                     </div>

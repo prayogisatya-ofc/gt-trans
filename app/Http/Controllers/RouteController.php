@@ -26,7 +26,9 @@ class RouteController extends Controller
         $routes = TravelRoute::query()
             ->with(['category', 'cityA', 'cityB'])
             ->where('is_active', true)
-            ->when($category, fn ($qq) => $qq->where('route_category_id', $category))
+            ->when($category, function ($qq) use ($category) {
+                $qq->whereHas('category', fn ($q) => $q->where('slug', $category));
+            })
             ->when($q, function ($qq) use ($q) {
                 $qq->whereHas('cityA', fn ($c) => $c->where('name', 'like', "%$q%"))
                    ->orWhereHas('cityB', fn ($c) => $c->where('name', 'like', "%$q%"));

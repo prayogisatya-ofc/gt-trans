@@ -292,7 +292,7 @@
                         </div>
                         <div class="flex flex-wrap gap-2">
                             @foreach($categories as $cat)
-                                <a href="{{ route('routes.index', ['category' => $cat->id]) }}"
+                                <a href="{{ route('routes.index', ['category' => $cat->slug]) }}"
                                    class="group px-4 py-2 text-sm font-bold rounded-xl bg-white border-2 border-zinc-200 text-zinc-700 hover:border-primary-500 hover:bg-primary-50 hover:text-primary-700 transition-all shadow-sm hover:shadow-md">
                                     {{ $cat->name }}
                                 </a>
@@ -512,9 +512,7 @@
                         <div class="space-y-2 mb-8">
                             <div class="text-sm font-bold text-zinc-400 uppercase tracking-wider">{{ $r->cityA?->name }}</div>
                             <div class="flex items-center gap-2">
-                                <svg class="w-5 h-5 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-primary-500 icon icon-tabler icons-tabler-outline icon-tabler-arrows-diff"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M11 16h10" /><path d="M11 16l4 4" /><path d="M11 16l4 -4" /><path d="M13 8h-10" /><path d="M13 8l-4 4" /><path d="M13 8l-4 -4" /></svg>
                                 <div class="text-xl font-black text-zinc-900 group-hover:text-primary-700 transition-colors">{{ $r->cityB?->name }}</div>
                             </div>
                         </div>
