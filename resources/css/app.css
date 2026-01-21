@@ -1,0 +1,59 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: "Plus Jakarta Sans", sans-serif;
+}
+
+@theme {
+    --color-primary-50: #eefff1;
+    --color-primary-100: #d8ffe2;
+    --color-primary-200: #b3ffc7;
+    --color-primary-300: #79fc9c;
+    --color-primary-400: #37f16a;
+    --color-primary-500: #0dda46;
+    --color-primary-600: #04ad33; /* Wana utama */
+    --color-primary-700: #078e2e;
+    --color-primary-800: #0c6f29;
+    --color-primary-900: #0c5b24;
+    --color-primary-950: #003310;
+
+    --color-secondary-50: #fffaeb;
+    --color-secondary-100: #fdf0c8;
+    --color-secondary-200: #fbe08c;
+    --color-secondary-300: #f8ca51;
+    --color-secondary-400: #f7b731; /* Warna sekunder */
+    --color-secondary-500: #f09310;
+    --color-secondary-600: #d56e0a;
+    --color-secondary-700: #b14c0c;
+    --color-secondary-800: #8f3b11;
+    --color-secondary-900: #763211;
+    --color-secondary-950: #441704;
+}
+
+/* base feel */
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+#important-note-content ul, 
+#booking-guide-content ul, 
+#cancellation-policy-content ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+}

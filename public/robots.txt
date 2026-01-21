@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /admin
+Disallow: /api
+Disallow: /booking
+
+Sitemap: https://gatotkacatravel.com/sitemap.xml
