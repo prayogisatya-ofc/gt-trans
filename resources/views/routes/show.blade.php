@@ -440,7 +440,7 @@
                         {{-- Default Description --}}
                         <div class="prose prose-sm max-w-none mb-5 sm:mb-6">
                             <p class="text-zinc-700 leading-relaxed font-medium">
-                                Layanan travel {{ $route->cityA->name }} - {{ $route->cityB->name }} tersedia setiap hari dengan armada yang nyaman dan driver berpengalaman. Kami menyediakan tiga pilihan layanan: <strong class="text-primary-700">Travel Reguler</strong> (sistem per kursi), <strong class="text-secondary-700">Carter Private</strong> (sewa 1 mobil penuh), dan <strong class="text-primary-700">Paket Kilat</strong> (pengiriman barang same day).
+                                Layanan travel {{ $route->cityA->name }} - {{ $route->cityB->name }} tersedia setiap hari dengan armada yang nyaman dan driver berpengalaman. Kami menyediakan tiga pilihan layanan: <strong class="text-primary-700">Reguler (Umum)</strong> (sistem per kursi), <strong class="text-secondary-700">Carter (Private)</strong> (sewa 1 mobil penuh), dan <strong class="text-primary-700">Paket Kilat</strong> (pengiriman barang same day).
                             </p>
                         </div>
 
@@ -750,7 +750,7 @@
                             <svg class="w-5 h-5 mx-auto mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
                             </svg>
-                            Travel Reguler
+                            Reguler (Umum)
                         </button>
     
                         <button type="button"
@@ -760,7 +760,7 @@
                             <svg class="w-5 h-5 mx-auto mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"/>
                             </svg>
-                            Carter Private
+                            Carter (Private)
                         </button>
     
                         <button type="button"
@@ -888,7 +888,7 @@
                                 <div class="p-3 sm:p-4 rounded-xl bg-white border border-primary-200">
                                     <div class="text-xs text-zinc-500 font-bold mb-1">⏰ Catatan Penting</div>
                                     <div class="text-sm text-zinc-700 font-medium">
-                                        Jam jemput mengikuti rute driver karena ada penumpang lain.
+                                        Jam jemput untuk pilihan reguler mengikuti Ketentuan jadwal (Rutinitas) yang ditetapkan dan mengikuti rute Driver karena ada penjemputan dan pengantaran penumpang di Kota tersebut.
                                     </div>
                                 </div>
                             </div>
@@ -955,7 +955,7 @@
                                     </svg>
                                 </div>
                                 <div class="flex-1">
-                                    <h4 class="text-base sm:text-lg font-black text-primary-900">Paket Kilat (Same Day)</h4>
+                                    <h4 class="text-base sm:text-lg font-black text-primary-900">Paket Kilat</h4>
                                     <p class="text-xs sm:text-sm text-primary-800 font-medium">Harga sama dengan travel 1 orang sekali jalan</p>
                                 </div>
                             </div>

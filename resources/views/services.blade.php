@@ -152,13 +152,13 @@
 
                     {{-- Badge --}}
                     <div class="relative mb-4">
-                        <x-ui.badge variant="success" size="lg">Travel Reguler</x-ui.badge>
+                        <x-ui.badge variant="success" size="lg">Reguler</x-ui.badge>
                     </div>
 
                     {{-- Title & Description --}}
                     <div class="relative flex-grow space-y-4 mb-6">
                         <h3 class="text-xl sm:text-2xl font-black text-zinc-900 group-hover:text-primary-700 transition-colors">
-                            Travel Reguler (Umum)
+                            Reguler (Umum)
                         </h3>
                         <p class="text-zinc-600 leading-relaxed font-medium">
                             Cocok untuk perjalanan hemat. Harga dihitung per orang sekali jalan, tersedia opsi Drop atau Pulang-Pergi (PP).
@@ -215,7 +215,7 @@
 
                     {{-- CTA Button --}}
                     <div class="relative">
-                        <x-ui.button href="{{ route('routes.index') }}" class="w-full py-2.5 sm:py-3 group-hover:shadow-xl transition-all">
+                        <x-ui.button href="{{ route('routes.index') }}" class="text-white w-full py-2.5 sm:py-3 group-hover:shadow-xl transition-all">
                             Cari Rute Reguler
                             <svg class="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
@@ -248,14 +248,14 @@
                     {{-- Badge --}}
                     <div class="relative mb-4">
                         <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-secondary-400/20 text-secondary-400 text-xs font-black uppercase tracking-wider border border-secondary-400/30">
-                            Carter Private
+                            Carter
                         </span>
                     </div>
 
                     {{-- Title & Description --}}
                     <div class="relative flex-grow space-y-4 mb-6">
                         <h3 class="text-xl sm:text-2xl font-black text-white">
-                            Carter Mobil Private
+                            Carter (Private)
                         </h3>
                         <p class="text-zinc-300 leading-relaxed font-medium">
                             Lebih privat dan fleksibel. Harga dihitung berdasarkan jumlah seat unit mobil yang Anda pilih, berapa pun jumlah penumpangnya.
@@ -343,7 +343,7 @@
                     {{-- Title & Description --}}
                     <div class="relative flex-grow space-y-4 mb-6">
                         <h3 class="text-xl sm:text-2xl font-black text-zinc-900 group-hover:text-primary-700 transition-colors">
-                            Pengiriman Paket Kilat
+                            Paket Kilat
                         </h3>
                         <p class="text-zinc-600 leading-relaxed font-medium">
                             Kirim barang atau dokumen antar kota lebih cepat dengan layanan same day delivery. Harga setara 1 orang sekali jalan.
@@ -400,7 +400,7 @@
 
                     {{-- CTA Button --}}
                     <div class="relative">
-                        <x-ui.button href="{{ route('routes.index') }}" class="w-full py-2.5 sm:py-3 group-hover:shadow-xl transition-all">
+                        <x-ui.button href="{{ route('routes.index') }}" class="text-white w-full py-2.5 sm:py-3 group-hover:shadow-xl transition-all">
                             Kirim Paket Sekarang
                             <svg class="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
@@ -456,7 +456,11 @@
                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                             </svg>
                         </td>
-                        <td class="py-3 px-3 sm:py-4 sm:px-4 text-center text-zinc-700">Fleksibel</td>
+                        <td class="py-3 px-3 sm:py-4 sm:px-4 text-center">
+                            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-red-500 mx-auto" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                            </svg>
+                        </td>
                     </tr>
                     <tr class="hover:bg-zinc-50 transition-colors">
                         <td class="py-3 px-3 sm:py-4 sm:px-4 font-bold text-zinc-900">Drop/PP</td>

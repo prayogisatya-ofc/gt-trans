@@ -47,7 +47,7 @@
             <button
                 id="btnDownload"
                 type="button"
-                class="group inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl bg-gradient-to-r from-primary-600 to-emerald-600 text-white font-black text-lg shadow-xl shadow-primary-600/30 hover:from-primary-700 hover:to-emerald-700 hover:shadow-2xl hover:scale-105 transition-all disabled:opacity-60 disabled:cursor-not-allowed"
+                class="cursor-pointer group inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl bg-gradient-to-r from-primary-600 to-emerald-600 text-white font-black text-lg shadow-xl shadow-primary-600/30 hover:from-primary-700 hover:to-emerald-700 hover:shadow-2xl hover:scale-105 transition-all disabled:opacity-60 disabled:cursor-not-allowed"
             >
                 <svg class="w-6 h-6 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
@@ -71,10 +71,10 @@
     @endif
 
     {{-- TICKET AREA - SIMPLE CINEMA STYLE --}}
-    <div class="flex justify-center mb-8">
+    <div class="mb-8 grid place-items-center">
         <div
             id="ticket"
-            style="width: 350px; background: #f8f9fa;"
+            style="width: 350px; max-width: 100%; background: #f8f9fa;"
         >
             {{-- HEADER: Dark with Booking ID --}}
             <div style="background: #1a202c; padding: 20px; position: relative; overflow: hidden;">
@@ -153,7 +153,7 @@
                     </div>
                     <div style="display: flex; justify-content: space-between; margin-bottom: 8px; padding-bottom: 8px; border-bottom: 1px solid #e5e7eb;">
                         <span style="color: #6b7280; font-size: 11px; font-weight: 600;">Layanan:</span>
-                        <span style="color: #1f2937; font-size: 11px; font-weight: 900;">{{ strtoupper($booking->service_type ?? 'REGULAR') }}</span>
+                        <span style="color: #1f2937; font-size: 11px; font-weight: 900; text-transform: capitalize;">{{ $booking->service_type === 'regular' ? 'Reguler (Umum)' : ($booking->service_type === 'charter' ? 'Carter (Private)' : 'Paket Kilat') }}</span>
                     </div>
                     <div style="display: flex; justify-content: space-between;">
                         <span style="color: #6b7280; font-size: 11px; font-weight: 600;">WhatsApp:</span>
@@ -252,17 +252,30 @@
                 btn.disabled = true;
                 btnText.textContent = 'Memproses...';
 
-                try {
-                    // Wait for everything to load
-                    await new Promise(resolve => setTimeout(resolve, 300));
+                const prev = {
+                    width: ticketNode.style.width,
+                    maxWidth: ticketNode.style.maxWidth,
+                    transform: ticketNode.style.transform,
+                    margin: ticketNode.style.margin,
+                };
 
-                    // Convert to PNG with high quality
+                try {
+                    ticketNode.style.width = '350px';
+                    ticketNode.style.maxWidth = '350px';
+                    ticketNode.style.transform = 'none';
+                    ticketNode.style.margin = '0 auto';
+
+                    await new Promise(resolve => requestAnimationFrame(resolve));
+                    await new Promise(resolve => setTimeout(resolve, 200));
+
+                    const rect = ticketNode.getBoundingClientRect();
+
                     const dataUrl = await htmlToImage.toPng(ticketNode, {
                         cacheBust: true,
-                        pixelRatio: 3, // High quality
+                        pixelRatio: 3,
                         backgroundColor: '#f8f9fa',
-                        width: 350,
-                        height: ticketNode.offsetHeight,
+                        width: Math.ceil(rect.width),
+                        height: Math.ceil(rect.height),
                     });
 
                     // Create download link
@@ -272,17 +285,21 @@
                     link.click();
 
                     // Success feedback
-                    btnText.innerHTML = '✓ Berhasil Download!';
+                    btnText.innerHTML = 'Berhasil Download!';
                     setTimeout(() => {
                         btnText.textContent = 'Download PNG';
                         btn.disabled = false;
                     }, 2000);
-
                 } catch (error) {
                     console.error('Error:', error);
-                    alert('❌ Gagal membuat PNG. Silakan coba lagi.');
+                    alert('Gagal membuat PNG. Silakan coba lagi.');
                     btnText.textContent = 'Download PNG';
                     btn.disabled = false;
+                } finally {
+                    ticketNode.style.width = prev.width;
+                    ticketNode.style.maxWidth = prev.maxWidth;
+                    ticketNode.style.transform = prev.transform;
+                    ticketNode.style.margin = prev.margin;
                 }
             });
         });

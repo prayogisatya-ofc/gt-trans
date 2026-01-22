@@ -330,7 +330,7 @@
                     </svg>
                 </div>
                 
-                <h3 class="text-xl sm:text-2xl font-black mb-3 text-zinc-900 group-hover:text-primary-700 transition-colors">Travel Reguler</h3>
+                <h3 class="text-xl sm:text-2xl font-black mb-3 text-zinc-900 group-hover:text-primary-700 transition-colors">Reguler (Umum)</h3>
                 <p class="text-zinc-600 text-sm leading-relaxed mb-6 font-medium">
                     Hemat biaya dengan sistem per kursi. Cocok untuk perjalanan dinas atau pulang kampung sendirian.
                 </p>
@@ -382,7 +382,7 @@
                     </svg>
                 </div>
                 
-                <h3 class="text-xl sm:text-2xl font-black mb-3">Carter Mobil (Private)</h3>
+                <h3 class="text-xl sm:text-2xl font-black mb-3">Carter (Private)</h3>
                 <p class="text-zinc-300 text-sm leading-relaxed mb-6 font-medium">
                     Sewa satu mobil penuh untuk keluarga atau grup. Waktu keberangkatan lebih fleksibel sesuka Anda.
                 </p>

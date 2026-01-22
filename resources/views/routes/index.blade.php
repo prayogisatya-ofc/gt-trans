@@ -86,7 +86,7 @@
                             </div>
                             <h2 class="text-lg sm:text-xl font-black text-zinc-900">Filter Pencarian</h2>
                         </div>
-                        <p class="text-sm text-zinc-500 font-medium">Temukan rute sesuai kebutuhan perjalanan Anda</p>
+                        <p class="text-sm text-zinc-500 font-medium">Silahkan tulis salah satu kota dari rencana perjalanan Anda, misal : "Kota Asal", jika tidak ditemukan rute bisa diganti dengan tulis "Kota Tujuan".</p>
                     </div>
 
                     {{-- Search Form --}}
@@ -94,7 +94,7 @@
                         {{-- Search Input --}}
                         <div>
                             <label for="search-city" class="block text-xs font-black uppercase tracking-widest text-zinc-500 mb-2">
-                                Cari Kota
+                                Cari Kota Asal/Tujuan
                             </label>
                             <div class="relative group">
                                 <div class="absolute inset-y-0 left-4 flex items-center pointer-events-none text-zinc-400 group-focus-within:text-primary-600 transition-colors">
@@ -207,7 +207,7 @@
                     </svg>
                 </div>
                 <div class="flex-1">
-                    <h3 class="text-base font-black text-zinc-900 mb-1.5 group-hover:text-primary-700 transition-colors">Travel Reguler</h3>
+                    <h3 class="text-base font-black text-zinc-900 mb-1.5 group-hover:text-primary-700 transition-colors">Reguler (Umum)</h3>
                     <p class="text-sm text-zinc-600 leading-relaxed font-medium">Berangkat tiap hari dengan sistem per kursi yang hemat dan efisien.</p>
                 </div>
             </article>
@@ -220,7 +220,7 @@
                     </svg>
                 </div>
                 <div class="flex-1">
-                    <h3 class="text-base font-black text-secondary-400 mb-1.5">Carter Mobil</h3>
+                    <h3 class="text-base font-black text-secondary-400 mb-1.5">Carter (Private)</h3>
                     <p class="text-sm text-zinc-400 leading-relaxed font-medium">Sewa 1 unit full untuk grup atau keluarga dengan privasi maksimal.</p>
                 </div>
             </article>

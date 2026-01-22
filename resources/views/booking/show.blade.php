@@ -32,15 +32,15 @@
                 <div class="flex items-center gap-3 mb-4">
                     @php
                         $statusColors = [
-                            'pending' => 'warning',
-                            'confirmed' => 'success',
-                            'completed' => 'default',
+                            'new' => 'warning',
+                            'departed1' => 'success',
+                            'departed2' => 'success',
                             'cancelled' => 'danger',
                         ];
                         $statusLabels = [
-                            'pending' => 'Menunggu Konfirmasi',
-                            'confirmed' => 'Dikonfirmasi',
-                            'completed' => 'Selesai',
+                            'new' => 'Baru',
+                            'departed1' => 'Berangkat',
+                            'departed2' => 'Pulang',
                             'cancelled' => 'Dibatalkan',
                         ];
                     @endphp
@@ -51,7 +51,7 @@
                         <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
                         </svg>
-                        {{ ucfirst($booking->service_type) }}
+                        {{ $booking->service_type === 'regular' ? 'Reguler (Umum)' : ($service_type === 'charter' ? 'Carter (Private)' : 'Paket Kilat') }}
                     </span>
                 </div>
                 

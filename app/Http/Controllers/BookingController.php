@@ -102,22 +102,22 @@ class BookingController extends Controller
     private function buildWhatsappMessage(Booking $b, TravelRoute $route, ?Vehicle $vehicle, string $detailUrl): string
     {
         $service = match ($b->service_type) {
-            'regular' => 'REGULER',
-            'charter' => 'CARTER (Private)',
-            'express' => 'PAKET KILAT',
+            'regular' => 'Reguler (Umum)',
+            'charter' => 'Carter (Private)',
+            'express' => 'Paket Kilat',
             default => $b->service_type,
         };
 
-        $trip = $b->trip_type ? strtoupper($b->trip_type) : '-';
+        $trip = $b->trip_type === 'pp' ? 'PP (Pulang Pergi)' : 'Drop (Sekali Jalan)';
 
         $lines = [];
         $lines[] = "-----------------------------------------";
-        $lines[] = "*BOOKING BARU - {$service}*";
-        $lines[] = "*GT TRANS*";
+        $lines[] = "*PEMESANAN BARU GT TRANS*";
         $lines[] = "-----------------------------------------";
         $lines[] = "*Kode Booking*: {$b->booking_code}";
         $lines[] = "*Rute*: {$b->fromCity->name} ke {$b->toCity->name}";
-        $lines[] = "*Tipe Pemesanan*: {$trip}";
+        $lines[] = "*Tipe Pemesanan*: {$service}";
+        $lines[] = "*Tipe Perjalanan*: {$trip}";
         $lines[] = "-----------------------------------------";
         $lines[] = "*Tanggal Berangkat*: " . date('d M Y', strtotime($b->departure_date));
         if ($b->trip_type === 'pp' && $b->return_date) {
