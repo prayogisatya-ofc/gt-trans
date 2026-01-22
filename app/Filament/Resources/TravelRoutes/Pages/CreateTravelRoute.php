@@ -7,5 +7,7 @@ use Filament\Resources\Pages\CreateRecord;
 
 class CreateTravelRoute extends CreateRecord
 {
+    protected static ?string $title = 'Buat Rute';
+
     protected static string $resource = TravelRouteResource::class;
 }

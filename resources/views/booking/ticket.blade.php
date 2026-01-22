@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'E-Ticket ' . $booking->booking_code . ' | GT Trans')
+@section('title', 'E-Ticket ' . $booking->booking_code)
 @section('meta_description', 'Unduh e-ticket GT Trans dalam bentuk gambar PNG. Tunjukkan saat penjemputan.')
 
 @section('content')

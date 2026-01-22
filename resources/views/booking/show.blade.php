@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', ($booking->route->meta_title ?: "Detail Booking #{$booking->booking_code} | GT Trans"))
+@section('title', "Detail Booking #{$booking->booking_code}")
 @section('meta_description', "Detail booking travel {$booking->fromCity->name} ke {$booking->toCity->name}. Cek status, jadwal, dan informasi pembayaran.")
 
 @section('content')

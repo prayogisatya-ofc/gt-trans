@@ -173,7 +173,9 @@
                                 @endif
                                 
                                 @if(request('category'))
-                                    @php($activeCat = $categories->firstWhere('slug', request('category')))
+                                    @php
+                                        $activeCat = $categories->firstWhere('slug', request('category'));
+                                    @endphp
                                     <span class="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-secondary-50 text-secondary-800 text-xs font-bold border-2 border-secondary-200 shadow-sm">
                                         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                                             <path fill-rule="evenodd" d="M17.707 9.293a1 1 0 010 1.414l-7 7a1 1 0 01-1.414 0l-7-7A.997.997 0 012 10V5a3 3 0 013-3h5c.256 0 .512.098.707.293l7 7zM5 6a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/>
@@ -281,7 +283,7 @@
                         {{-- Route Details --}}
                         <div class="relative flex-grow space-y-7 sm:space-y-8 mb-6 sm:mb-8">
                             <div class="space-y-2">
-                                <div class="text-xs font-bold text-zinc-400 uppercase tracking-wider flex items-center gap-2">
+                                <div class="text-sm sm:text-md md:text-lg font-black text-zinc-900 tracking-wider flex items-center gap-2">
                                     {{ $r->cityA?->name }}
                                 </div>
                                 
@@ -389,19 +391,56 @@
                         </a>
                     @endif
 
-                    {{-- Page Numbers --}}
-                    <div class="flex items-center gap-2">
-                        @foreach ($routes->getUrlRange(1, $routes->lastPage()) as $page => $url)
-                            @if ($page == $routes->currentPage())
+                    <div class="hidden md:flex items-center gap-2">
+                        @php
+                            $current = $routes->currentPage();
+                            $last = $routes->lastPage();
+                            $delta = 2;
+                            $left = $current - $delta;
+                            $right = $current + $delta;
+                            $range = [];
+                            $rangeWithDots = [];
+                            $l = null;
+
+                            for ($i = 1; $i <= $last; $i++) {
+                                if ($i == 1 || $i == $last || ($i >= $left && $i <= $right)) {
+                                    $range[] = $i;
+                                }
+                            }
+
+                            foreach ($range as $i) {
+                                if ($l) {
+                                    if ($i - $l === 2) {
+                                        $rangeWithDots[] = $l + 1;
+                                    } elseif ($i - $l !== 1) {
+                                        $rangeWithDots[] = '...';
+                                    }
+                                }
+                                $rangeWithDots[] = $i;
+                                $l = $i;
+                            }
+                        @endphp
+
+                        @foreach ($rangeWithDots as $page)
+                            @if ($page === '...')
+                                <span class="px-4 sm:px-5 py-2 sm:py-3 text-zinc-400 font-bold text-sm">
+                                    {{ $page }}
+                                </span>
+                            @elseif ($page == $current)
                                 <span class="px-4 sm:px-5 py-2 sm:py-3 rounded-xl bg-primary-600 text-white font-black text-sm shadow-lg shadow-primary-600/30">
                                     {{ $page }}
                                 </span>
                             @else
-                                <a href="{{ $url }}" class="px-4 sm:px-5 py-2 sm:py-3 rounded-xl bg-white border-2 border-zinc-200 hover:border-primary-500 hover:bg-primary-50 text-zinc-700 hover:text-primary-700 font-bold text-sm transition-all shadow-sm hover:shadow-md">
+                                <a href="{{ $routes->url($page) }}" class="px-4 sm:px-5 py-2 sm:py-3 rounded-xl bg-white border-2 border-zinc-200 hover:border-primary-500 hover:bg-primary-50 text-zinc-700 hover:text-primary-700 font-bold text-sm transition-all shadow-sm hover:shadow-md">
                                     {{ $page }}
                                 </a>
                             @endif
                         @endforeach
+                    </div>
+
+                    {{-- Current Page Indicator - Only Visible on Mobile --}}
+                    <div class="md:hidden px-4 py-2 text-zinc-600 font-semibold text-sm">
+                        {{ $routes->currentPage() }} / {{ $routes->lastPage() }}
                     </div>
 
                     {{-- Next Page --}}

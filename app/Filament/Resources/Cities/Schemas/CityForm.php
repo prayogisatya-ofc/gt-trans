@@ -18,8 +18,6 @@ class CityForm
                         TextInput::make('name')
                             ->label('Nama Kota')
                             ->required()
-                            ->live(onBlur: true)
-                            ->afterStateUpdated(fn ($state, callable $set) => $set('slug', Str::slug($state)))
                             ->maxLength(100)
                             ->placeholder('Contoh: Jakarta'),
 
@@ -27,13 +25,6 @@ class CityForm
                             ->label('Provinsi (opsional)')
                             ->maxLength(100)
                             ->placeholder('Contoh: DKI Jakarta'),
-
-                        TextInput::make('slug')
-                            ->label('Slug')
-                            ->required()
-                            ->unique(ignoreRecord: true)
-                            ->maxLength(120)
-                            ->helperText('Biarkan kosong untuk generate otomatis dari nama kota.'),
                     ])->columns(2),
             ])->columns(1);
     }

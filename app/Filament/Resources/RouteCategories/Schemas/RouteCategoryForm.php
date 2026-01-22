@@ -19,22 +19,8 @@ class RouteCategoryForm
                         TextInput::make('name')
                             ->label('Nama Kategori')
                             ->required()
-                            ->live(onBlur: true)
-                            ->afterStateUpdated(fn ($state, callable $set) => $set('slug', Str::slug($state)))
                             ->maxLength(120)
                             ->placeholder('Contoh: Jakarta - Jawa Timur'),
-
-                        TextInput::make('slug')
-                            ->label('Slug')
-                            ->required()
-                            ->unique(ignoreRecord: true)
-                            ->maxLength(150)
-                            ->helperText('Biarkan kosong untuk generate otomatis dari nama kategori.'),
-
-                        TextInput::make('sort_order')
-                            ->label('Urutan')
-                            ->numeric()
-                            ->default(0),
 
                         Toggle::make('is_active')
                             ->label('Aktif')

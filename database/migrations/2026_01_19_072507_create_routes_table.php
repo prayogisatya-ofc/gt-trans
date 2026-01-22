@@ -17,8 +17,6 @@ return new class extends Migration
             $table->foreignUuid('city_a_id')->constrained('cities')->cascadeOnDelete();
             $table->foreignUuid('city_b_id')->constrained('cities')->cascadeOnDelete();
             $table->unsignedBigInteger('price_regular');
-
-            // SEO
             $table->string('slug')->unique();
             $table->longText('notes')->nullable();
             $table->boolean('is_active')->default(true);

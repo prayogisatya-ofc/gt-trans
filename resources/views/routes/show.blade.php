@@ -598,7 +598,7 @@
             </div>
 
             {{-- CTA BOOKING BUTTON --}}
-            <div class="sticky bottom-4 sm:bottom-6 z-30">
+            <div class="sticky bottom-4 sm:bottom-6 z-[41]">
                 <div class="rounded-2xl bg-gradient-to-r from-primary-600 to-primary-700 p-4 sm:p-6 shadow-2xl shadow-primary-600/40 border-2 border-primary-500">
                     <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
                         <div class="text-center sm:text-left">

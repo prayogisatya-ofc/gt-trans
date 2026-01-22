@@ -24,11 +24,6 @@ class CitiesTable
                     ->searchable()
                     ->toggleable(),
 
-                TextColumn::make('slug')
-                    ->label('Slug')
-                    ->toggleable()
-                    ->limit(30),
-
                 TextColumn::make('created_at')
                     ->label('Dibuat')
                     ->dateTime('d M Y')

@@ -7,5 +7,7 @@ use Filament\Resources\Pages\CreateRecord;
 
 class CreateCity extends CreateRecord
 {
+    protected static ?string $title = 'Buat Kota';
+
     protected static string $resource = CityResource::class;
 }

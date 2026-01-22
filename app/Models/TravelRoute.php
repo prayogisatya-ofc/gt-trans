@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class TravelRoute extends Model
 {
@@ -31,6 +32,19 @@ class TravelRoute extends Model
                 if (strcmp((string) $route->city_a_id, (string) $route->city_b_id) > 0) {
                     [$route->city_a_id, $route->city_b_id] = [$route->city_b_id, $route->city_a_id];
                 }
+            }
+
+            if (blank($route->slug) && $route->cityA && $route->cityB) {
+                $route->slug = Str::slug($route->cityA->name . '-' . $route->cityB->name);
+            }
+
+            $route->is_active = $route->is_active ?? true;
+            $route->is_favorite = $route->is_favorite ?? false;
+        });
+
+        static::updating(function (TravelRoute $route) {
+            if ($route->cityA && $route->cityB) {
+                $route->slug = Str::slug($route->cityA->name . '-' . $route->cityB->name);
             }
         });
     }

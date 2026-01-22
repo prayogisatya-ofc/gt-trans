@@ -30,7 +30,9 @@
     {{-- Backdrop --}}
     <div 
         class="absolute inset-0 bg-zinc-900/60 backdrop-blur-sm" 
-        @if($closeable) @click="open=false" @endif
+        @if($closeable) 
+            @click="open=false" 
+        @endif
         x-transition:enter="transition ease-out duration-300"
         x-transition:enter-start="opacity-0"
         x-transition:enter-end="opacity-100">

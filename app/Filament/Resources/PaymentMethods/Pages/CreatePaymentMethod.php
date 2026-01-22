@@ -7,5 +7,7 @@ use Filament\Resources\Pages\CreateRecord;
 
 class CreatePaymentMethod extends CreateRecord
 {
+    protected static ?string $title = 'Buat Metode Pembayaran';
+
     protected static string $resource = PaymentMethodResource::class;
 }

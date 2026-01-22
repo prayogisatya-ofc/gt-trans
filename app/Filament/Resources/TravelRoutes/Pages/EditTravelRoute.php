@@ -8,6 +8,8 @@ use Filament\Resources\Pages\EditRecord;
 
 class EditTravelRoute extends EditRecord
 {
+    protected static ?string $title = 'Ubah Rute';
+
     protected static string $resource = TravelRouteResource::class;
 
     protected function getHeaderActions(): array

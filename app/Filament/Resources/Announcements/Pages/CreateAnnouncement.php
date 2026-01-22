@@ -7,5 +7,7 @@ use Filament\Resources\Pages\CreateRecord;
 
 class CreateAnnouncement extends CreateRecord
 {
+    protected static ?string $title = 'Buat Pengumuman';
+
     protected static string $resource = AnnouncementResource::class;
 }

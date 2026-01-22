@@ -2,8 +2,10 @@
 
 namespace App\Filament\Resources\Cities\Pages;
 
+use App\Filament\Imports\CityImporter;
 use App\Filament\Resources\Cities\CityResource;
 use Filament\Actions\CreateAction;
+use Filament\Actions\ImportAction;
 use Filament\Resources\Pages\ListRecords;
 
 class ListCities extends ListRecords
@@ -13,7 +15,11 @@ class ListCities extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            CreateAction::make(),
+            ImportAction::make()
+                ->importer(CityImporter::class)
+                ->label('Impor Kota'),
+            CreateAction::make()
+                ->label('Buat Kota'),
         ];
     }
 }

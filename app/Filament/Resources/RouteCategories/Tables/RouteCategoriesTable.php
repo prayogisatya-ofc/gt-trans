@@ -7,6 +7,7 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Table;
 
 class RouteCategoriesTable
@@ -19,11 +20,6 @@ class RouteCategoriesTable
                     ->label('Kategori')
                     ->searchable()
                     ->sortable(),
-
-                TextColumn::make('slug')
-                    ->label('Slug')
-                    ->limit(30)
-                    ->toggleable(),
 
                 IconColumn::make('is_active')
                     ->label('Aktif')
@@ -38,7 +34,7 @@ class RouteCategoriesTable
                     ->sortable(),
             ])
             ->filters([
-                //
+                TernaryFilter::make('is_favorite')->label('Favorit'),
             ])
             ->recordActions([
                 EditAction::make(),

@@ -7,5 +7,7 @@ use Filament\Resources\Pages\CreateRecord;
 
 class CreateSocialLink extends CreateRecord
 {
+    protected static ?string $title = 'Buat Sosial Media';
+
     protected static string $resource = SocialLinkResource::class;
 }

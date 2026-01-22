@@ -71,14 +71,6 @@ class TravelRouteForm
                                 }
                             ]),
 
-                        TextInput::make('slug')
-                            ->label('Slug')
-                            ->required()
-                            ->unique(ignoreRecord: true)
-                            ->maxLength(200)
-                            ->helperText('Biarkan kosong untuk generate otomatis dari Kota A - Kota B.')
-                            ->columnSpanFull(),
-
                         TextInput::make('price_regular')
                             ->label('Harga Reguler (per orang / sekali jalan)')
                             ->required()
@@ -110,29 +102,6 @@ class TravelRouteForm
                             ->default(false),
                     ])
                     ->columns(2)
-                    ->afterStateHydrated(function ($record, callable $set) {
-                        // optional
-                    })
-                    ->columnSpan(3),
-
-                Section::make('Auto Slug Helper')
-                    ->description('Klik generate slug otomatis dari Kota A - Kota B.')
-                    ->schema([
-                        Actions::make([
-                            Action::make('generate_slug')
-                                ->label('Generate Slug')
-                                ->action(function (callable $get, callable $set) {
-                                    $a = City::find($get('city_a_id'))?->name;
-                                    $b = City::find($get('city_b_id'))?->name;
-
-                                    if ($a && $b) {
-                                        $set('slug', Str::slug($a . '-' . $b));
-                                    }
-                                }),
-                        ]),
-                    ])
-                    ->collapsible()
-                    ->columnSpan(2),
-            ])->columns(5);
+            ])->columns(1);
     }
 }

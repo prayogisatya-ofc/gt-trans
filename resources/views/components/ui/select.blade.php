@@ -21,7 +21,9 @@
         <select
             name="{{ $name }}"
             id="{{ $name }}"
-            @if($required) required @endif
+            @if($required)
+                required 
+            @endif
             {{ $attributes->merge([
                 'class' => 'w-full rounded-xl border-2 border-zinc-200 bg-white px-4 py-3 pr-10 text-sm font-medium text-zinc-900 outline-none transition-all focus:border-primary-500 focus:ring-4 focus:ring-primary-100 disabled:bg-zinc-50 disabled:text-zinc-500 disabled:cursor-not-allowed hover:border-zinc-300 appearance-none cursor-pointer'
             ]) }}

@@ -8,6 +8,8 @@ use Filament\Resources\Pages\EditRecord;
 
 class EditAnnouncement extends EditRecord
 {
+    protected static ?string $title = 'Ubah Pengumuman';
+
     protected static string $resource = AnnouncementResource::class;
 
     protected function getHeaderActions(): array
